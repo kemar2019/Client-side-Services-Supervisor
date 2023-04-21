@@ -14,11 +14,14 @@ import domain.ComplaintsAndQueriesTable;
 
 public class ViewComplaint extends JPanel {
 
+	private ClientHandler client;
+
 	/**
 	 * Create the panel.
 	 * @param client 
 	 */
 	public ViewComplaint(ClientHandler client) {
+		this.client = client;
 		setBounds(0, 0, 981, 581);
 		setLayout(null);
 		

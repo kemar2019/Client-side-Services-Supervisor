@@ -104,6 +104,14 @@ public class ClientHandler {
 		}
 	}
 	
+	public void Assign(ComplaintsAndQueries cq) {
+		try {
+			objOs.writeObject(cq);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public List<ComplaintsAndQueries> receiveObject() {
 	    
 	    if (action.equalsIgnoreCase("Get All Complaints For Student")) {
@@ -307,6 +315,10 @@ public class ClientHandler {
 		}
 		return false;
 	}
+
+	
+
+	
 
 	
 	

@@ -31,7 +31,7 @@ public class Assignview extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Assignview frame = new Assignview();
+					Assignview frame = new Assignview(null);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -43,8 +43,8 @@ public class Assignview extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Assignview() {
-		client = new ClientHandler();
+	public Assignview(ClientHandler Client) {
+		this.client = client; 
 		cq = new ComplaintsAndQueries();
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -73,19 +73,18 @@ public class Assignview extends JFrame {
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
 		
-		JButton btnNewButton = new JButton("New button");
+		JButton btnNewButton = new JButton("Assign");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				try {	
 					String stu = textField.getText();
 					String pass = textField_1.getText();
-					int id = Integer.parseInt(stu);
-					int qid = Integer.parseInt(pass);
-					//cq.setId(id);
-					//cq.setAdvisorId(qid);
-					//client.sendAction("Assign Advisor");
-					//client.Assign(cq);
+					cq.setId(stu);
+					cq.setAdvisorId(pass);
+					client.sendAction("Assign Advisor");
+					client.Assign(cq);
+					
 					}catch(Exception ex){
 					
 						
